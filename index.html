@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intranet Inaccessible</title>
+</head>
+
+<body>
+    <h1>The intranet is not accessible from outside the network.</h1>
+    <p id="redirect-message">Redirecting... Click <a id="redirect-link" href="">here</a> if you are not redirected in
+        the next 3 seconds.</p>
+    <script>
+        var split = window.location.origin.split('.')
+        var redir = `https://${split[split.length - 2]}.${split[split.length - 1]}`
+        document.getElementsById("redirect-link").href = redir
+        setTimeout(function () {
+            window.location.href = redir;
+        }, 3000);
+    </script>
+</body>
+
+</html>
