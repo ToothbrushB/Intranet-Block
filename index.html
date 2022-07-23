@@ -5,6 +5,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            padding: 50px;
+            font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+        }
+
+        a {
+            color: #00B7FF;
+        }
+
+
+        .float-child {
+            float: left;
+            top: 50%;
+        }
+
+        .center-horizontal {
+            margin: auto;
+            width: 100%;
+            text-align: center;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: rgb(23, 23, 23);
+                color: rgb(255, 255, 255)
+            }
+
+            .dark {
+                display: block
+            }
+
+            .light {
+                display: none
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            body {
+                background-color: rgb(255, 255, 255);
+            }
+
+            .light {
+                display: block
+            }
+
+            .dark {
+                display: none
+            }
+
+        }
+    </style>
     <title>Intranet Inaccessible</title>
 </head>
 
@@ -15,7 +67,7 @@
     <script>
         var split = window.location.origin.split('.')
         var redir = `https://${split[split.length - 2]}.${split[split.length - 1]}`
-        document.getElementsById("redirect-link").href = redir
+        document.getElementById("redirect-link").href = redir
         setTimeout(function () {
             window.location.href = redir;
         }, 3000);
